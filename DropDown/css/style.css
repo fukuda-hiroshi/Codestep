@@ -1,0 +1,93 @@
+body{
+  font-family: 'Noto Sans JP', sans-serif;
+  color: #000;
+  font-size: 0.85rem;
+  background: #fff;
+  position: relative;
+}
+header{
+  width: 100%;
+}
+header nav{
+  background: #000;
+}
+header nav .menu{
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  margin: 0 auto;
+  max-width: 1000px;
+}
+header nav .menu li a{
+  color: #fff;
+  padding:0 20px;
+}
+header nav li{
+  height: 50px;
+  line-height: 50px;
+  padding:0 20px;
+  color: #fff;
+  text-align: center;
+}
+.menu > li:hover {
+  background-color: #3c3636;
+}
+/*
+ドロップダウン用のメニュー
+初期状態は表示しないため、「visibility: hidden;」で非表示にしておく
+*/
+.menu-second {
+  visibility: hidden;
+}
+/*
+Menu Single
+「position: relative;」で、サブメニュー（Single）の基準位置として設定
+*/
+.menu > .single {
+  position: relative;
+}
+/*
+「position: absolute;」で、singleクラスを基準に所定の位置に配置する
+*/
+.single .menu-second {
+  width: 100%;
+  background-color: #3c3636;
+  position: absolute;
+  top: 50px;
+  left: 0;
+}
+.single .menu-second li a:hover {
+  opacity: 0.7;
+}
+/*
+ホバー時にサブメニュー（Single）を表示する
+*/
+.single:hover .menu-second {
+  visibility: visible;
+}
+/*
+Menu Wide
+「position: absolute;」で、menuクラスを基準に所定の位置に配置する
+*/
+.wide .menu-second {
+  width: 100%;
+  background-color: #3c3636;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  position: absolute;
+  top: 50px;
+  left: 0;
+}
+.wide .menu-second li {
+  width: 25%;
+}
+.wide .menu-second li a:hover {
+  opacity: 0.7;
+}
+/*
+ホバー時にサブメニュー（Wide）を表示する
+*/
+.wide:hover .menu-second {
+  visibility: visible;
+}
