@@ -1,0 +1,220 @@
+body{
+  font-family: 'Noto Sans JP', sans-serif;
+  color: #000;
+  font-size: 0.85rem;
+  background: #fff;
+  position: relative;
+}
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 80px;
+  padding: 2%;
+  background: #fff;
+  z-index: 10;
+}
+header .toggle_btn{
+  width: 30px;
+  height: 30px;
+  position: relative;
+
+}
+header .toggle_btn span:nth-child(1){
+  position: absolute;
+  top: 20%;
+  background: #000;
+  width: 100%;
+  height: 2px;
+  border-radius: 4px;
+  transition: all .5s;
+}
+header .toggle_btn span:nth-child(2){
+  position: absolute;
+  top: 50%;
+  background: #000;
+  width: 100%;
+  height: 2px;
+  transition: all .5s;
+}
+header .toggle_btn span:nth-child(3){
+  position: absolute;
+  top: 80%;
+  background: #000;
+  width: 100%;
+  height: 2px;
+  transition: all .5s;
+}
+@media screen and ( max-width:767px) {
+  header{
+    padding: 2% 4% 2% 4%;
+  }
+}
+#wrap{
+  position: relative;
+  padding-top: 80px;
+}
+.mainvisual{
+  background: gray;
+  height: 500px;
+}
+section h2{
+  text-align: center;
+  font-size: 2.25rem;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+#pickup{
+  padding: 10% 0 0 0;
+}
+#feature{
+  padding: 10% 0 0 0;
+}
+#feature ul{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0 4%;
+}
+#feature ul li{
+  width: 32%;
+  box-shadow: 0 0 8px 4px #ccc;
+  margin: 0 0 2% 0;
+}
+#feature ul li img{
+  width: 100%;
+}
+.textbox{
+  padding: 10% 6%;
+}
+.textbox h3{
+  padding: 8% 0;
+}
+#contact{
+  background: black;
+  color: #fff;
+  padding: 3% 5% 4% 5%;
+}
+#contact .inner{
+  display: flex;
+  justify-content: space-between;
+  align-content: flex-start;
+  flex-wrap: wrap;
+}
+#contact .inner > div{
+  width: 47%;
+}
+#contact .inner table{
+  width: 100%;
+}
+#contact input,
+#contact textarea{
+  background: #fff;
+  width: 100%;
+  height: 50px;
+  margin: 0 0 30px 0;
+}
+#contact textarea{
+  height: 150px;
+}
+#contact #form th,
+#contact #form td{
+  display: block;
+  text-align: left;
+}
+#contact #sendBtn{
+  width: 38%;
+  height: 60px;
+  border: #fff 1px solid;
+  text-align: center;
+  line-height: 60px;
+  font-size: 18px;
+}
+header::after{
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+}
+header.open::after{
+  display: block;
+}
+header.open .toggle_btn{
+  z-index: 30;
+}
+header.open .toggle_btn span{
+  background: #fff;
+
+}
+header.open .toggle_btn span:nth-child(2){
+  display: none;
+}
+header.open .toggle_btn span:nth-child(1){
+  transform: translateY(9px) rotate(-315deg);
+}
+header.open .toggle_btn span:nth-child(3){
+  transform: translateY(-9px) rotate(315deg);
+}
+#navi{
+  color: #fff;
+  background: #121212;
+  position: fixed;
+  top: 0;
+  left: -300px;
+  width: 300px;
+  transition: all 0.5s;
+  height: 100%;
+  padding: 60px 20px 0px 20px;
+  font-size: 20px;
+  z-index: 30;
+}
+#navi .nav_top li{
+  padding: 30px 0;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+}
+#navi .nav_top{
+  margin-bottom: 60px;
+}
+#navi .nav_top li+li{
+  border-top: none;
+}
+header.open #navi{
+  left: 0;
+}
+#navi .nav_sns li:nth-child(n+2){
+  margin-top: 15px;
+
+}
+footer{
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  background: black;
+  text-align: center;
+  color: #fff;
+  padding: 10px 0;
+}
+@media screen and (max-width: 767px){
+  #feature ul li{
+    width: 100%;
+    margin: 0 auto 20px auto;
+  }
+  #contact .inner #formexp{
+    width: 100%;
+  }
+  #contact .inner #form{
+    width: 100%;
+  }
+  #contact #sendBtn{
+    width: 100%;
+  }
+}

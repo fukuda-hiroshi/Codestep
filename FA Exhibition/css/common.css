@@ -1,0 +1,330 @@
+/* body */
+/* header */
+/* mainvisual */
+/* section */
+/* information */
+body{
+  font-family: 'Noto Sans JP', sans-serif;
+  color: #fff;
+  font-size: 0.85rem;
+  background: #000;
+  position: relative;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 300;
+}
+/*-------------------------------------------
+header
+-------------------------------------------*/
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 80px;
+  padding: 2%;
+  background:transparent;
+  z-index: 10;
+}
+header #logo{
+  display: none;
+}
+header .toggle_btn{
+  width: 30px;
+  height: 30px;
+  position: relative;
+  display: none;
+}
+header .toggle_btn span{
+  position: absolute;
+  background: #fff;
+  width: 100%;
+  height: 2px;
+  border-radius: 4px;
+  transition: all .5s;
+
+}
+header .toggle_btn span:nth-child(1){
+  top: 20%;
+}
+header .toggle_btn span:nth-child(2){
+  top: 50%;
+}
+header .toggle_btn span:nth-child(3){
+  top: 80%;
+}
+header.open .toggle_btn{
+  z-index: 30;
+}
+header.open .toggle_btn span{
+  background: #fff;
+}
+header.open .toggle_btn span:nth-child(2){
+  transform: translateY(0px) rotate(45deg);
+}
+header.open .toggle_btn span:nth-child(1){
+  transform: translateY(9px) rotate(-45deg);
+}
+header.open .toggle_btn span:nth-child(3){
+  transform: translateY(-9px) rotate(45deg);
+}
+header.open::after{
+  display: block;
+}
+header.open #logo{
+  z-index: 30;
+}
+#navi{
+  color: #fff;
+  background: #000;
+  position: fixed;
+  top: -300px;
+  left: 0;
+  transition: all 1.0s;
+  padding: 60px 20px 0px 20px;
+  font-size: 14px;
+  width: 100%;
+}
+#navi ul li{
+  padding: 10px 0;
+  border: none;
+  text-align: center;
+}
+header.open #navi{
+  top: 0;
+}
+@media screen and ( max-width:900px) {
+  header{
+    padding: 2% 4% 2% 4%;
+  }
+
+}
+/*-------------------------------------------
+mainvisual
+-------------------------------------------*/
+/*
+スクロールしたタイミングでjQueryにて画像を拡大するが、
+その際に画像が縮まないよう「flex-shrink: 0;」を設定する
+*/
+#mainvisual{
+  display: flex;
+  overflow-x: hidden;
+  justify-content: center;
+}
+#mainvisual img{
+  flex-shrink: 0;
+  object-fit: cover;
+  width: calc(100%/3);
+  height: 100vh;
+}
+@media screen and ( max-width:900px) {
+  #mainvisual img{
+    width: 100%;
+  }
+}
+/*-------------------------------------------
+h1
+-------------------------------------------*/
+h1{
+  font-size: 64px;
+  text-align: center;
+  margin-top: 60px;
+}
+@media screen and ( max-width:900px) {
+  h1{
+    font-size: 48px;
+    margin-top: 40px;
+  }
+}
+/*-------------------------------------------
+section
+-------------------------------------------*/
+section{
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+section h2 {
+  font-size: 40px;
+  margin-bottom: 40px;
+
+}
+section h2 span{
+  border-bottom: 3px solid #fff;
+}
+/*-------------------------------------------
+information
+-------------------------------------------*/
+#information,
+#gallery,
+#access,
+#contact{
+  margin-top: 140px;
+}
+section .day-en{
+  font-size: 24px;
+}
+section .time-en{
+  font-size: 20px;
+}
+section .place{
+  font-size: 40px;
+  font-weight: bold;
+}
+section .day-ja,
+section .time-ja{
+  font-size: 18px;
+}
+section ul li:nth-child(n+2){
+  margin-top: 30px;
+}
+/*-------------------------------------------
+gallery
+-------------------------------------------*/
+#gallery ul li img{
+  width: 48%;
+}
+#gallery ul li:nth-child(odd){
+  text-align: left;
+
+}
+#gallery ul li:nth-child(even){
+  text-align: right;
+
+}
+/*
+フェード表示
+InformationとGalleryの画像を下からふわっと表示させるためのクラス
+「transform: translate(0, 50%);」で下にさげた状態で、
+「opacity: 0;」で非表示にしておく
+*/
+.fadein {
+  opacity: 0;
+  transform: translate(0, 50%);
+  transition: 2s;
+}
+/*
+fadeinクラスの要素が画面下にきたタイミングで、jQueryのinviewにてshowクラスを追加して
+「transform: translate(0, 0);」と「opacity: 1;」で表示させる
+※main.jsの「フェード表示」を参照
+*/
+.fadein.show {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+/*-------------------------------------------
+Access
+-------------------------------------------*/
+.bg {
+  background: url(../img/bg.jpg) center center repeat !important;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  z-index: 10;
+}
+#access{
+  z-index: 20;
+  position: relative;
+  margin-top: 480px;
+}
+#access p:nth-child(1) span{
+  font-size: 30px;
+}
+#access p:nth-child(2) span{
+  font-size: 20px;
+}
+#access p:nth-child(3) span{
+  font-size: 18px;
+}
+#access p{
+  margin: 0 0 30px 0;
+}
+#access a{
+  color: #fff;
+  display: inline-block;
+  width: 31.25%;
+  border: 2px solid #fff;
+  padding: 15px 0;
+}
+#access a:hover{
+  background: #000;
+  transition: all 0.3s;
+}
+/*-------------------------------------------
+contact
+-------------------------------------------*/
+#contact{
+  margin-top: 480px;
+  
+}
+#contact a{
+  width: 50%;
+  color: #fff;
+  display: block;
+  border: 2px solid #fff;
+  margin: 0 auto;
+  padding: 30px 0;
+  font-size: 20px;
+  position: relative;
+}
+#contact a:nth-of-type(2){
+  margin-top: 30px;
+}
+#contact a::before{
+  content: "";
+  position: absolute;
+  height: 1px;
+  width: 120px;
+  background: #fff;
+  top: 55%;
+  right: -50px;
+}
+#contact a::after {
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 1px;
+  background: #fff;
+  top: 55%;
+  right: -43px;
+  transform: translateY(-17px) rotate(-45deg);
+}
+#contact a:hover{
+  opacity: 0.7;
+}
+#contact a:hover::after{
+  right: -50px;
+}
+#contact a:hover:before{
+  right: -57px;
+}
+/*-------------------------------------------
+footer
+-------------------------------------------*/
+footer{
+  padding: 6.67% 2.5%;
+  border-top: 1px solid #fff;
+  margin-top: 140px;
+  font-size: 12px;
+}
+footer .infolist{
+  margin: 0 0 30px 0;
+}
+footer .outerlist{
+  display: flex;
+  justify-content: space-between;
+
+}
+footer .outerlist .snslist,
+footer .outerlist .captionlist{
+  display: flex;
+}
+footer .outerlist .snslist li,
+footer .outerlist .captionlist li{
+  margin-right: 30px;
+}
